@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Assignment 3">
+<meta name="keywords" content="keyword">
+<meta name="author" content="Evan Switzer">
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="assets/style.css">
+<!-- Custom CSS End -->
+<style>
+ul {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+
+  <nav>
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="pokedex">Pokedex</a></li>
+  <li><a href="clients.html">Our Clients</a></li>
+  <li><a href="products.html">Our Products</a></li>
+  <li><a href="services.html">Our Services</a></li>
+  <li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+
+    <p>Pokemon number: {{.ID}}</p>
+    <p>Name: {{.Name.English}}</p>
+    <p>Type: {{.Type}}</p>
+
+
+
+    <h3>Status panel</h3>
+    <div id="sPanel" style="height:20%;overflow:scroll;padding:0.7%;">
+      <ul id="sPList">
+      </ul>
+
+
+      <!--Line 1<br>Line 2<br>Line 3<br>Line 4<br>Line 5
+    -->
+    </div>
+    <button id="clearSP">Clear </button>
+    <br>
+    <br>
+
+    <h3>File log panel</h3>
+
+    <div style="height:20%;overflow:scroll;padding:0.7%;">
+      <table style="width:100%" id="fileLogTable">
+      <tr>
+        <th>File name<br>(click to download)</th>
+        <th>Version</th>
+        <th>Product ID</th>
+        <th>Number of events</th>
+        <th>Number of properties</th>
+      </tr>
+    </table> </div>
+
+
+
+
+    <form id="uploadFile" method = "post" action = "/upload" enctype="multipart/form-data">
+      <input type="file" name="uploadFile" accept=".ics" id="uploadFile" required>
+      <input type="submit" id="submitUploadFile" value="Submit file">
+    </form>
+    <br><br>
+
+    <!--  <input type="button" id="some" value="button"> -->
+<br>
+
+
+<!--
+    <div class="dropdown">
+      <input type="button" id="dropButton" class="dropbtn" value="DropButt">
+      <div id="myDropdown" class="dropdown-content">
+        <a>Thing 1</a>
+      </div>
+    </div> -->
+
+    <h3>Calendar view panel</h3>
+
+    <select id="fileMenu">
+      <option value="">Select File</option>
+    </select>
+
+        <div style="height:20%;overflow:scroll;padding:0.7%;">
+          <table style="width:100%" id="calViewTable">
+          <thead>
+            <th>Event No</th>
+            <th>Start date</th>
+            <th>Start time</th>
+            <th>Summary</th>
+            <th>Props</th>
+            <th>Alarms</th>
+            <th>Action</th>
+          </thead>
+
+        </table> </div>
+    <br>
+    <br>
+
+
+    <h3>
+      Create Calendar
+    </h3>
+    <form id="subCalForm">
+      <div>
+        <label for="fNameIn">File Name: </label>
+        <input type="text" id="fNameIn" pattern=".*.ics" placeholder="example.ics" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <label for="verIn">Version: </label>
+        <input type="text" id="verIn" pattern="[0-9]+" placeholder="2" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <label for="prodIn">Product ID: </label>
+        <input type="text" id="prodIn" placeholder="-//hacksw/handcal//NONSGML v1.0//EN" required>
+        <span class="validity"></span>
+      </div>
+      <br>
+
+      <h5>
+        Create Event for new Calendar
+      </h5>
+      <div>
+        <label for="UIDIN">UID: </label>
+        <input type="text" id="UIDIN" placeholder="uid1@example.com" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <label for="cDateIN">Creation Date: </label>
+        <input type="date" id="cDateIN" maxlength="8" minlength="8" placeholder="YYYYMMDD" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <label for="cTimeIN">Creation Time: </label>
+        <input type="text" id="cTimeIN" maxlength="6" minlength="6" pattern="[0-9]{6}" placeholder="HHMMSS" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <label for="cUTC">UTC: </label>
+        <input type="checkbox" id="cUTC">
+      <div>
+        <label for="sDateIN">Start Date: </label>
+        <input type="date" id="sDateIN" maxlength="8" minlength="8" placeholder="YYYYMMDD" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <label for="sTimeIN">Start Time: </label>
+        <input type="text" id="sTimeIN" maxlength="6" minlength="6" pattern="[0-9]{6}" placeholder="HHMMSS" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <label for="cUTC">UTC: </label>
+        <input type="checkbox" id="cUTC">
+      </div>
+      <div>
+        <label for="summary">Summary: </label>
+        <input type="text" id="summary" required>
+      </div>
+
+
+      <div>
+        <input type="submit" value="Create Calendar">
+        <!--<button id="subCal">Create Calendar</button>-->
+      </div>
+    </form>
+    <br><br>
+
+
+
+    <form id = "subForm">
+    <h3>
+      Add Event
+    </h3>
+
+    <select id="fileAddEvent" required>
+      <option value="">Select File</option>
+    </select>
+    <br><br>
+
+    <div>
+      <label for="UIDINE">UID: </label>
+      <input type="text" id="UIDINE" placeholder="uid1@example.com" required>
+      <span class="validityE"></span>
+    </div>
+    <div>
+      <label for="cDateINE">Creation Date: </label>
+      <input type="date" id="cDateINE" maxlength="8" minlength="8" placeholder="YYYYMMDD" required>
+      <span class="validityE"></span>
+    </div>
+    <div>
+      <label for="cTimeINE">Creation Time: </label>
+      <input type="text" id="cTimeINE" maxlength="6" minlength="6" pattern="[0-9]{6}" placeholder="HHMMSS" required>
+      <span class="validityE"></span>
+    </div>
+    <div>
+      <label for="cUTCE">UTC: </label>
+      <input type="checkbox" id="cUTCE">
+    <div>
+      <label for="sDateINE">Start Date: </label>
+      <input type="date" id="sDateINE" maxlength="8" minlength="8" placeholder="YYYYMMDD" required>
+      <span class="validityE"></span>
+    </div>
+    <div>
+      <label for="sTimeINE">Start Time: </label>
+      <input type="text" id="sTimeINE" maxlength="6" minlength="6" pattern="[0-9]{6}" placeholder="HHMMSS" required>
+      <span class="validityE"></span>
+    </div>
+    <div>
+      <label for="sUTCE">UTC: </label>
+      <input type="checkbox" id="sUTCE">
+    <div>
+    <div>
+      <label for="summaryE">Summary: </label>
+      <input type="text" id="summaryE">
+    </div>
+    <div>
+      <input type="submit" value="Create Event">
+      <!--<button id="subEvt">Create Event</button>-->
+    </div>
+  </form>
+
+
+  <br>
+  <form id = "login">
+    <h3>
+      Login
+    </h3>
+    <div>
+      <label for="Username">Username: </label>
+      <input type="text" id="Username" placeholder="Username" required>
+    </div>
+    <div>
+      <label for="Password">Password: </label>
+      <input type="text" id="Password" placeholder="Password" required>
+    </div>
+    <div>
+      <label for="Database">Database: </label>
+      <input type="text" id="Database" placeholder="Database" required>
+    </div>
+    <div>
+      <input type="submit" value="Login">
+    </div>
+  </form>
+
+  <div id="hideDiv" hidden>
+    <br>
+
+    <button id="getAll">Store all files</button>
+    <br><br>
+
+    <button id="clearAll">Clear all data</button>
+    <br><br>
+
+    <button id="displayDB">Display DB status</button>
+    <br><br>
+
+    <h5>
+      Execute Query
+    </h5>
+    <button id="displaySorted">Display all events sorted by start date</button>
+    <br>
+    <button id="displayEvents">Display the events from a specific file</button>
+    <input type="text" id="DbFile" placeholder="example.ics">
+    <br>
+    <button id="conflictEvents">Display all events that might conflict</button>
+    <br>
+    <button id="displayVersion">Displays the version that appears the most</button>
+    <br>
+    <button id="firstAmount">Display an amount of the earliest events</button>
+    <input type="text" id="fAmount" placeholder="3">
+    <br>
+    <button id="numAudio">Displays how many alarms have the action audio</button>
+    <br>
+
+    <br>
+    <h5>Query Results</h5>
+    <textarea id="qResult" style="height:200px;width:100%;overflow:scroll;padding:0.7%;" readonly>
+    </textarea>
+
+
+
+  </div>
+  <br>
+
+
+  <!--<script src="/index.js"></script>-->
+</body>
+</html>
