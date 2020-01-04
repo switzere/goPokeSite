@@ -9,9 +9,14 @@ import (
   //"time"
   //"flag"
   "log"
-  //"strconv"
+  // "strconv"
   "encoding/json"
   //"math"
+  "strings"
+  // "image"
+  // "image/png"
+  // "bytes"
+  // "encoding/base64"
 
   "github.com/PuerkitoBio/goquery"
 )
@@ -20,6 +25,10 @@ var (
   Pokedex []Pokemon
 )
 
+type temp struct{
+  Pokedex []Pokemon
+  Name string
+}
 
 type PageVariables struct {
   Date string
@@ -27,6 +36,9 @@ type PageVariables struct {
 }
 
 type Pokemon struct {
+  Sprite string `json:"sprite"`
+  Image string `json:"image"`
+  Thumb string `json:"thumb"`
 	ID   int `json:"id"`
 	Name struct {
 		English  string `json:"english"`
@@ -35,6 +47,7 @@ type Pokemon struct {
 		French   string `json:"french"`
 	} `json:"name"`
 	Type []string `json:"type"`
+  TypeString string `json:"typestring"`
 	Base struct {
 		HP        int `json:"HP"`
 		Attack    int `json:"Attack"`
@@ -44,6 +57,7 @@ type Pokemon struct {
 		Speed     int `json:"Speed"`
 	} `json:"base"`
 }
+
 
 
 
@@ -117,7 +131,7 @@ type Search struct{
 
 
 func init(){
-  fmt.Println("Website init")
+  fmt.Println("Website start")
 
   doc, _ := goquery.NewDocument("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/pokedex.json")
 
@@ -129,6 +143,44 @@ func init(){
   fmt.Println(pageBody)
 
   json.Unmarshal([]byte(pageBody), &Pokedex)
+
+
+
+
+  /*infile, _ := os.Open("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/sprites/005MS.png")
+
+  defer infile.Close()
+
+
+  // Decode will figure out what type of image is in the file on its own.
+  // We just have to be sure all the image packages we want are imported.
+  src, _, _ := image.Decode(infile)
+
+  fmt.Println(infile)
+  fmt.Println(src)
+
+  Pokedex[0].Sprite = infile*/
+
+
+  for i := 0; i < len(Pokedex); i++{
+
+    pNum := fmt.Sprintf("%03d", i+1)
+    fmt.Println(pNum)
+
+    Pokedex[i].TypeString = strings.Join(Pokedex[i].Type, ", ")
+    Pokedex[i].Sprite = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/sprites/" + pNum + "MS.png"
+    Pokedex[i].Image = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/" + pNum + ".png"
+    Pokedex[i].Thumb = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/thumbnails/" + pNum + ".png"
+
+
+    //sprt, _ := goquery.NewDocument("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/sprites/005MS.png")
+    //spriteBody := sprt.Find("body").Contents().Text()
+
+    //Pokedex[i].Sprite = []byte(spriteBody)
+    //fmt.Println(spriteBody)
+    //buffer := bufio.NewReader(sprt)
+    //Pokedex[i].Sprite = buffer
+  }
 
 /*  resp, _ := http.Get("https://golangcode.com")
   fmt.Println(resp)
@@ -150,6 +202,7 @@ func init(){
 
   json.Unmarshal(byteValue, Pokedex)*/
 
+  fmt.Println("Website loaded")
 
 
 }
@@ -178,12 +231,17 @@ func main() {
   mux.HandleFunc("/", home_handler)
   mux.HandleFunc("/about/", about_handler)
   mux.HandleFunc("/pokedex/", dex_handler)
+  mux.HandleFunc("/pokedex/Bulbasaur", b_handler)
 
 	http.ListenAndServe(":"+port, mux)
 }
 
 
 func about_handler(w http.ResponseWriter, r *http.Request){
+  fmt.Fprintf(w, "Exper web design")
+}
+
+func b_handler(w http.ResponseWriter, r *http.Request){
   fmt.Fprintf(w, "Exper web design")
 }
 
@@ -213,14 +271,20 @@ func home_handler(w http.ResponseWriter, r *http.Request){
 func dex_handler(w http.ResponseWriter, r *http.Request){
   //fmt.Fprintf(w, "dex")
 
-  t, err := template.ParseFiles("dex.html")
+  t, err := template.ParseFiles("dex.html") //parse the html file homepage.html
 
-  if err != nil { // if there is an error
-    log.Print("template parsing error: ", err) // log it
-  }
-  err = t.Execute(w, "Pokedex placeholder") //execute the template and pass it the HomePageVars struct to fill in the gaps
-  if err != nil { // if there is an error
-    log.Print("template executing error: ", err) //log it
+  var T temp
+  T.Pokedex = Pokedex
+
+  for i := 0; i < 1; i++{
+
+      if err != nil { // if there is an error
+        log.Print("template parsing error: ", err) // log it
+      }
+      err = t.Execute(w, T) //execute the template and pass it the HomePageVars struct to fill in the gaps
+      if err != nil { // if there is an error
+        log.Print("template executing error: ", err) //log it
+      }
   }
 
 }

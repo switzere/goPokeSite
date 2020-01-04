@@ -12,6 +12,7 @@
 <!-- Custom CSS End -->
 <style>
 ul {
+  z-index:900;
   position: fixed;
   top: 0;
   left: 0;
@@ -47,6 +48,44 @@ li a:hover:not(.active) {
 .active {
   background-color: #4CAF50;
 }
+
+.boxed {
+  text-indent: 1.2em;
+  font-size: 1.1em;
+  font-weight: bold;
+  z-index:899;
+  position: relative;
+  padding: 0.5em;
+  height: 25%;
+  width: 35%;
+  left: 3%;
+  top: 90px;
+  background-color: rgba(250, 122, 112, 0.975);
+
+  border-radius: .5em;
+  box-shadow:
+    -6px -6px 6px 0 rgba(255,255,255,0.2),
+    6px 6px 6px 0 rgba(0,0,0,0.2);
+
+}
+
+
+.displayed {
+  position: fixed;
+  top: 96px;
+  right: 3%;
+  background-color: #fa7a70;
+
+  padding: 1em;
+  height: 80%;
+  width: 50%;
+
+  border-radius: .5em;
+  box-shadow:
+    -6px -6px 6px 0 rgba(255,255,255,0.2),
+    6px 6px 6px 0 rgba(0,0,0,0.2);
+}
+
 </style>
 </head>
 <body>
@@ -54,7 +93,7 @@ li a:hover:not(.active) {
   <nav>
 <ul>
   <li><a href="/">Home</a></li>
-  <li><a href="pokedex">Pokedex</a></li>
+  <li><a href="">Pokedex</a></li>
   <li><a href="clients.html">Our Clients</a></li>
   <li><a href="products.html">Our Products</a></li>
   <li><a href="services.html">Our Services</a></li>
@@ -62,31 +101,69 @@ li a:hover:not(.active) {
 </ul>
 </nav>
 
-<br>
-<br>
-<p>Stuff: {{.}}</p>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
-<h1>spacing</h1>
+
+ <div class="displayed" Id="displayArea">
+</div>
+
+<!--
+<div class="circle">
+  <div class="circle" style="
+  position:absolute;
+  background-color: #000000;
+  height: 200px;
+  width: 200px;
+  top: 300px;
+  left: 300px">
+  </div>
+  <div style="
+  position:absolute;
+  overflow:hidden;
+  background: #000000;
+  padding: 20px;
+  top:350px;
+  width: 800px;
+  height: 50px
+  ">
+</div>
+</div> -->
+
+<div style="
+  z-index:898;
+  position:fixed;
+  top:65%
+">
+  <img src="https://www.freeiconspng.com/uploads/pokeball-transparent-png-2.png" alt="">
+</div>
+
+<div>
+  {{ range .Pokedex}}
+    <!--<a href="{{.Name.English}}">-->
+    <div class="boxed" tag={{.ID}}  onclick="selPok({{.}})">
+    <p>{{.ID}}. {{.Name.English}}</p>
+    <p>{{.TypeString}}</p>
+     <!--<img src="{{.Sprite}}">
+     <img src="{{.Image}}">-->
+     <div style="
+     right:10%;
+     position:absolute;
+     top: 10%;
+     ">
+     <img src="{{.Thumb}}">
+      </div>
+
+     <script>
+     function selPok(poke){
+       document.getElementById("displayArea").innerHTML = "<img src="+poke.image+">"
+     }
+     </script>
+
+    </div>
+    </a>
+    <br>
+  {{end}}
+</div>
+
+
 
 </body>
 </html>
