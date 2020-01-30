@@ -92,12 +92,12 @@ li a:hover:not(.active) {
 
   <nav>
 <ul>
-  <li><a href="/">Home</a></li>
+<!--  <li><a href="/">Home</a></li> -->
   <li><a href="">Pokedex</a></li>
-  <li><a href="clients.html">Our Clients</a></li>
+<!--  <li><a href="clients.html">Our Clients</a></li>
   <li><a href="products.html">Our Products</a></li>
   <li><a href="services.html">Our Services</a></li>
-  <li><a href="contact.html">Contact Us</a></li>
+  <li><a href="contact.html">Contact Us</a></li>-->
 </ul>
 </nav>
 
@@ -138,10 +138,11 @@ li a:hover:not(.active) {
 <div>
   {{ range .Pokedex}}
     <!--<a href="{{.Name.English}}">-->
-    <div class="boxed" tag={{.ID}}  onclick="selPok({{.}})">
+    <div class="boxed" tag={{.ID}}  onclick="selPok({{.}})"  style="padding-bottom: 2%;">
     <p>{{.ID}}. {{.Name.English}}</p>
-    <p>{{.TypeString}}</p>
-    <span class="background-color-grass">Grass</span>
+    <!--<p>{{.TypeString}}</p>-->
+    <span class={{.TypeA}}>{{.TypeA}}</span>
+    <span class={{.TypeB}}>{{.TypeB}}</span>
      <!--<img src="{{.Sprite}}">
      <img src="{{.Image}}">-->
      <div style="
@@ -154,10 +155,10 @@ li a:hover:not(.active) {
 
      <script>
      function selPok(poke){
-       document.getElementById("displayArea").innerHTML = "<img src="+poke.image+">"
+       document.getElementById("displayArea").innerHTML = "<img style=\"position: absolute;\"src="+poke.image+"><p style=\"font-size: 2em; font-weight: bold;\"  align=\"right\">"+poke.id+"</p><p style=\"font-size: 2em; font-weight: bold;\"  align=\"right\">"+poke.name.english+"</p><div align=\"right\"><span style=\"font-size: 1.5em;\" class="+poke.typeA+">"+poke.typeA+"</span><span style=\"font-size: 1.5em;\" class="+poke.typeB+">"+poke.typeB+"</span><div>";
+       <!--document.getElementById("displayArea").innerHTML = "<img src="+poke.image+"><p>"+poke.id+"</p><p>"+poke.name.english+"</p><p>"+poke.typestring+"</p><p>Sp. Defense: "+poke.base['Sp. Defense']+"</p>";-->
      }
      </script>
-
     </div>
     </a>
     <br>

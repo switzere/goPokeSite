@@ -13,12 +13,12 @@ body {
     background-color: #fa7a70;
 }
 
-.background-color-grass {
-    background: -webkit-linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
-    background: -ms-linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
-    background: -moz-linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
-    background: -o-linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
-    background: linear-gradient(180deg,#9bcc50 50%,#9bcc50 50%);
+.Normal {
+    background: -webkit-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
+    background: -ms-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
+    background: -moz-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
+    background: -o-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
+    background: linear-gradient(180deg,#A8A77A 50%,#A8A77A 50%);
     background-color: rgba(0, 0, 0, 0);
     background-color: #9bcc50;
     color: #212121;
@@ -27,6 +27,244 @@ body {
     padding: 4px 16px;
 }
 
+.Fire {
+  background: -webkit-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
+  background: -ms-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
+  background: -moz-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
+  background: -o-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
+  background: linear-gradient(180deg,#EE8130 50%,#EE8130 50%);
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #9bcc50;
+  color: #212121;
+  border-radius: 16px;
+  border: #FFFFFF;
+  padding: 4px 16px;
+}
+
+.Water {
+  background: -webkit-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
+  background: -ms-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
+  background: -moz-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
+  background: -o-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
+  background: linear-gradient(180deg,#6390F0 50%,#6390F0 50%);
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #9bcc50;
+  color: #212121;
+  border-radius: 16px;
+  border: #FFFFFF;
+  padding: 4px 16px;
+}
+
+.Electric {
+    background: -webkit-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
+    background: -ms-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
+    background: -moz-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
+    background: -o-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
+    background: linear-gradient(180deg,#F7D02C 50%,#F7D02C 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Grass {
+    background: -webkit-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
+    background: -ms-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
+    background: -moz-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
+    background: -o-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
+    background: linear-gradient(180deg,#7AC74C 50%,#7AC74C 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Ice {
+    background: -webkit-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
+    background: -ms-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
+    background: -moz-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
+    background: -o-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
+    background: linear-gradient(180deg,#96D9D6 50%,#96D9D6 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Fighting {
+    background: -webkit-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
+    background: -ms-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
+    background: -moz-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
+    background: -o-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
+    background: linear-gradient(180deg,#C22E28 50%,#C22E28 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Poison {
+    background: -webkit-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
+    background: -ms-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
+    background: -moz-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
+    background: -o-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
+    background: linear-gradient(180deg,#A33EA1 50%,#A33EA1 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+
+.Ground {
+    background: -webkit-linear-gradient(180deg, #E2BF65 50%, #E2BF65 50%);
+    background: -ms-linear-gradient(180deg, #E2BF65 50%, #E2BF65 50%);
+    background: -moz-linear-gradient(180deg, #E2BF65 50%, #E2BF65 50%);
+    background: -o-linear-gradient(180deg, #E2BF65 50%, #E2BF65 50%);
+    background: linear-gradient(180deg,#E2BF65 50%,#E2BF65 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Flying {
+    background: -webkit-linear-gradient(180deg, #A98FF3 50%, #A98FF3 50%);
+    background: -ms-linear-gradient(180deg, #A98FF3 50%, #A98FF3 50%);
+    background: -moz-linear-gradient(180deg, #A98FF3 50%, #A98FF3 50%);
+    background: -o-linear-gradient(180deg, #A98FF3 50%, #A98FF3 50%);
+    background: linear-gradient(180deg,#A98FF3 50%,#A98FF3 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Psychic {
+    background: -webkit-linear-gradient(180deg, #F95587 50%, #F95587 50%);
+    background: -ms-linear-gradient(180deg, #F95587 50%, #F95587 50%);
+    background: -moz-linear-gradient(180deg, #F95587 50%, #F95587 50%);
+    background: -o-linear-gradient(180deg, #F95587 50%, #F95587 50%);
+    background: linear-gradient(180deg,#F95587 50%,#F95587 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Bug {
+    background: -webkit-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
+    background: -ms-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
+    background: -moz-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
+    background: -o-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
+    background: linear-gradient(180deg,#A6B91A 50%,#A6B91A 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Rock {
+  background: -webkit-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
+  background: -ms-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
+  background: -moz-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
+  background: -o-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
+  background: linear-gradient(180deg,#B6A136 50%,#B6A136 50%);
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #9bcc50;
+  color: #212121;
+  border-radius: 16px;
+  border: #FFFFFF;
+  padding: 4px 16px;
+}
+
+.Ghost {
+    background: -webkit-linear-gradient(180deg, #735797 50%, #735797 50%);
+    background: -ms-linear-gradient(180deg, #735797 50%, #735797 50%);
+    background: -moz-linear-gradient(180deg, #735797 50%, #735797 50%);
+    background: -o-linear-gradient(180deg, #735797 50%, #735797 50%);
+    background: linear-gradient(180deg,#735797 50%,#735797 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Dragon {
+  background: -webkit-linear-gradient(180deg, #6F35FC 50%, #6F35FC 50%);
+  background: -ms-linear-gradient(180deg, #6F35FC 50%, #6F35FC 50%);
+  background: -moz-linear-gradient(180deg, #6F35FC 50%, #6F35FC 50%);
+  background: -o-linear-gradient(180deg, #6F35FC 50%, #6F35FC 50%);
+  background: linear-gradient(180deg,#6F35FC 50%,#6F35FC 50%);
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #9bcc50;
+  color: #212121;
+  border-radius: 16px;
+  border: #FFFFFF;
+  padding: 4px 16px;
+}
+
+.Dark {
+  background: -webkit-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: -ms-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: -moz-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: -o-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: linear-gradient(180deg,#705746 50%,#705746 50%);
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #9bcc50;
+  color: #212121;
+  border-radius: 16px;
+  border: #FFFFFF;
+  padding: 4px 16px;
+}
+
+.Steel {
+    background: -webkit-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
+    background: -ms-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
+    background: -moz-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
+    background: -o-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
+    background: linear-gradient(180deg,#B7B7CE 50%,#B7B7CE 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
+
+.Fairy {
+    background: -webkit-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
+    background: -ms-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
+    background: -moz-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
+    background: -o-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
+    background: linear-gradient(180deg,#D685AD 50%,#D685AD 50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #9bcc50;
+    color: #212121;
+    border-radius: 16px;
+    border: #FFFFFF;
+    padding: 4px 16px;
+}
 
 .dropdown-content {
   display: none;

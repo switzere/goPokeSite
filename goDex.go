@@ -30,11 +30,6 @@ type temp struct{
   Name string
 }
 
-type PageVariables struct {
-  Date string
-  Time string
-}
-
 type Pokemon struct {
   Sprite string `json:"sprite"`
   Image string `json:"image"`
@@ -48,6 +43,8 @@ type Pokemon struct {
 	} `json:"name"`
 	Type []string `json:"type"`
   TypeString string `json:"typestring"`
+  TypeA string `json:"typeA"`
+  TypeB string `json:"typeB"`
 	Base struct {
 		HP        int `json:"HP"`
 		Attack    int `json:"Attack"`
@@ -168,6 +165,10 @@ func init(){
     fmt.Println(pNum)
 
     Pokedex[i].TypeString = strings.Join(Pokedex[i].Type, ", ")
+    Pokedex[i].TypeA = Pokedex[i].Type[0]
+    if(len(Pokedex[i].Type) > 1){
+      Pokedex[i].TypeB = Pokedex[i].Type[1]
+    }
     Pokedex[i].Sprite = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/sprites/" + pNum + "MS.png"
     Pokedex[i].Image = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/" + pNum + ".png"
     Pokedex[i].Thumb = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/thumbnails/" + pNum + ".png"
@@ -238,11 +239,11 @@ func main() {
 
 
 func about_handler(w http.ResponseWriter, r *http.Request){
-  fmt.Fprintf(w, "Exper web design")
+  fmt.Fprintf(w, "Expert web design")
 }
 
 func b_handler(w http.ResponseWriter, r *http.Request){
-  fmt.Fprintf(w, "Exper web design")
+  fmt.Fprintf(w, "Expert web design")
 }
 
 
