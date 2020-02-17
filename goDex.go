@@ -68,63 +68,6 @@ type Search struct{
   SearchKey string
   SearchResults SearchResults
 }
-//
-// func index_handler(w http.ResponseWriter, r * http.Request){
-//   tempL.Execute(w,nil)
-// }
-//
-// func search_handler(w http.ResponseWriter, r *http.Request){
-//   u, err := url.Parse(r.URL.String())
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusInternalServerError)
-// 		w.Write([]byte("Internal server error"))
-// 		return
-// 	}
-//
-// 	params := u.Query()
-// 	searchKey := params.Get("q")
-// 	page := params.Get("page")
-// 	if page == "" {
-// 		page = "1"
-// 	}
-//
-// 	//fmt.Println("Search Query is: ", searchKey)
-// 	//fmt.Println("Results page is: ", page)
-//   search := &Search{}
-// 	search.SearchKey = searchKey
-//
-// 	if err != nil {
-// 		http.Error(w, "Unexpected server error", http.StatusInternalServerError)
-// 		return
-// 	}
-//
-// 	endpoint := fmt.Sprintf("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/pokedex.json", url.QueryEscape(search.SearchKey))
-// 	resp, err := http.Get(endpoint)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusInternalServerError)
-// 		return
-// 	}
-//
-// 	defer resp.Body.Close()
-//
-// 	if resp.StatusCode != 200 {
-// 		w.WriteHeader(http.StatusInternalServerError)
-// 		return
-// 	}
-//
-// 	err = json.NewDecoder(resp.Body).Decode(&search.SearchResults)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusInternalServerError)
-// 		return
-// 	}
-//
-//
-//
-//   err = tempL.Execute(w, search)
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusInternalServerError)
-// 	}
-// }
 
 
 func init(){
@@ -144,21 +87,6 @@ func init(){
 
 
 
-  /*infile, _ := os.Open("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/sprites/005MS.png")
-
-  defer infile.Close()
-
-
-  // Decode will figure out what type of image is in the file on its own.
-  // We just have to be sure all the image packages we want are imported.
-  src, _, _ := image.Decode(infile)
-
-  fmt.Println(infile)
-  fmt.Println(src)
-
-  Pokedex[0].Sprite = infile*/
-
-
   for i := 0; i < len(Pokedex); i++{
 
     pNum := fmt.Sprintf("%03d", i+1)
@@ -174,43 +102,16 @@ func init(){
     Pokedex[i].Thumb = "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/thumbnails/" + pNum + ".png"
 
 
-    //sprt, _ := goquery.NewDocument("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/sprites/005MS.png")
-    //spriteBody := sprt.Find("body").Contents().Text()
-
-    //Pokedex[i].Sprite = []byte(spriteBody)
-    //fmt.Println(spriteBody)
-    //buffer := bufio.NewReader(sprt)
-    //Pokedex[i].Sprite = buffer
   }
 
-/*  resp, _ := http.Get("https://golangcode.com")
-  fmt.Println(resp)
 
-  	// Convert HTML into goquery document
-  	doc, _ := goquery.NewDocumentFromReader(resp.Body)
-    fmt.Println(doc)
-
-  	// Save each .post-title as a list
-  	titles := ""
-  	doc.Find(".post-title").Each(func(i int, s *goquery.Selection) {
-  		titles += "- " + s.Text() + "\n"
-  	})
-
-
-  fmt.Println(titles)*/
-
-  /*byteValue, _ := ioutil.ReadAll("https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/pokedex.json")
-
-  json.Unmarshal(byteValue, Pokedex)*/
 
   fmt.Println("Website loaded")
 
 
 }
 
-// main.go
 
-// beginning of the file
 
 func main() {
   fmt.Println("Website starting")
