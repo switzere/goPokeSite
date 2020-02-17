@@ -103,7 +103,15 @@ li a:hover:not(.active) {
 
 
  <div class="displayed" Id="displayArea">
+   <!--selPok({{ index .Pokedex 0 }})-->
+   <img style="position: absolute;" src={{ (index .Pokedex 0).Image }}>
+   <p style="font-size: 2em; font-weight: bold;"  align="right">{{ (index .Pokedex 0).ID }}</p>
+   <p style="font-size: 2em; font-weight: bold;"  align="right">{{ (index .Pokedex 0).Name.English }}</p>
+   <div align="right">
+  <span style="font-size: 1.5em;" class={{ (index .Pokedex 0).TypeA }}>{{ (index .Pokedex 0).TypeA }}</span>
+  <span style="font-size: 1.5em;" class={{ (index .Pokedex 0).TypeB }}>{{ (index .Pokedex 0).TypeB }}</span>
 </div>
+ </div>
 
 <!--
 <div class="circle">
@@ -138,7 +146,7 @@ li a:hover:not(.active) {
 <div>
   {{ range .Pokedex}}
     <!--<a href="{{.Name.English}}">-->
-    <div class="boxed" tag={{.ID}}  onclick="selPok({{.}})"  style="padding-bottom: 2%;">
+    <div class="boxed" tag={{.ID}}  onclick="selPok({{.}})"  style="padding-bottom: 2%; cursor:pointer;">
     <p>{{.ID}}. {{.Name.English}}</p>
     <!--<p>{{.TypeString}}</p>-->
     <span class={{.TypeA}}>{{.TypeA}}</span>
@@ -155,7 +163,7 @@ li a:hover:not(.active) {
 
      <script>
      function selPok(poke){
-       document.getElementById("displayArea").innerHTML = "<img style=\"position: absolute;\"src="+poke.image+"><p style=\"font-size: 2em; font-weight: bold;\"  align=\"right\">"+poke.id+"</p><p style=\"font-size: 2em; font-weight: bold;\"  align=\"right\">"+poke.name.english+"</p><div align=\"right\"><span style=\"font-size: 1.5em;\" class="+poke.typeA+">"+poke.typeA+"</span><span style=\"font-size: 1.5em;\" class="+poke.typeB+">"+poke.typeB+"</span><div>";
+       document.getElementById("displayArea").innerHTML = "<img style=\"position: absolute;\"src="+poke.image+"><p style=\"font-size: 2em; font-weight: bold;\"  align=\"right\">"+poke.id+"</p><p style=\"font-size: 2em; font-weight: bold;\"  align=\"right\">"+poke.name.english+"</p><div align=\"right\"><span style=\"font-size: 1.5em;\" class="+poke.typeA+">"+poke.typeA+"</span><span style=\"font-size: 1.5em;\" class="+poke.typeB+">"+poke.typeB+"</span></div>";
        <!--document.getElementById("displayArea").innerHTML = "<img src="+poke.image+"><p>"+poke.id+"</p><p>"+poke.name.english+"</p><p>"+poke.typestring+"</p><p>Sp. Defense: "+poke.base['Sp. Defense']+"</p>";-->
      }
      </script>
